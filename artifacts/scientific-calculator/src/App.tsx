@@ -12,7 +12,7 @@ function App() {
     <ThemeProvider defaultTheme="dark" attribute="class">
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
-          <div className="min-h-screen bg-background text-foreground flex items-center justify-center font-sans">
+          <div className="min-h-dvh bg-background text-foreground flex items-center justify-center font-sans">
             <Calculator />
           </div>
           <Toaster />

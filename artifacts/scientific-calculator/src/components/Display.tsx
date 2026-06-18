@@ -40,28 +40,28 @@ export function Display({ expression, previewResult, finalResult, error }: Displ
   };
 
   return (
-    <div className="w-full bg-background border border-border/50 rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6 shadow-inner relative flex flex-col justify-end min-h-[140px] sm:min-h-[160px] overflow-hidden">
-      
+    <div className="w-full bg-background border border-border/50 rounded-2xl p-3 sm:p-4 lg:p-6 mb-3 sm:mb-4 lg:mb-6 shadow-inner relative flex flex-col justify-end min-h-[100px] sm:min-h-[140px] lg:min-h-[160px] overflow-hidden">
+
       {/* Small floating copy button */}
-      <button 
+      <button
         onClick={handleCopy}
-        className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors p-2 rounded-md hover:bg-muted"
+        className="absolute top-3 right-3 sm:top-4 sm:right-4 text-muted-foreground hover:text-foreground transition-colors p-2 rounded-md hover:bg-muted"
         aria-label="Copy result"
       >
         {copied ? <Check size={16} className="text-green-500" /> : <Copy size={16} />}
       </button>
 
       {/* Expression / Previous steps */}
-      <div 
+      <div
         ref={scrollRef}
-        className="w-full overflow-x-auto whitespace-nowrap text-right text-muted-foreground mb-2 font-mono text-sm sm:text-base hide-scrollbar scroll-smooth"
+        className="w-full overflow-x-auto whitespace-nowrap text-right text-muted-foreground mb-1 sm:mb-2 font-mono text-xs sm:text-sm lg:text-base hide-scrollbar scroll-smooth"
       >
         {finalResult !== null ? expression + " =" : (previewResult && expression !== previewResult ? previewResult : "\u00A0")}
       </div>
 
       {/* Main Display Area */}
-      <motion.div 
-        key={displayText} // animate on change
+      <motion.div
+        key={displayText}
         initial={{ opacity: 0, y: 5 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.15 }}

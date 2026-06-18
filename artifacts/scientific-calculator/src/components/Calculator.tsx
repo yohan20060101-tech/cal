@@ -54,38 +54,38 @@ export function Calculator() {
   };
 
   const TopBar = () => (
-    <div className="flex items-center justify-between mb-4">
-      <div className="flex items-center gap-2">
-        <button 
+    <div className="flex items-center justify-between mb-3 sm:mb-4 gap-2">
+      <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto hide-scrollbar min-w-0">
+        <button
           onClick={() => { playClick(); toggleAngleMode(); }}
-          className="text-xs font-bold px-3 py-1 rounded bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors"
+          className="text-xs font-bold px-2 py-1 sm:px-3 rounded bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors flex-shrink-0"
         >
           {angleMode}
         </button>
-        <div className="flex gap-1 bg-secondary rounded p-1">
-          <button onClick={() => { playClick(); memoryClear(); }} className="text-xs px-2 py-0.5 rounded hover:bg-background transition-colors text-muted-foreground">MC</button>
-          <button onClick={() => { 
-            playClick(); 
+        <div className="flex gap-1 bg-secondary rounded p-1 flex-shrink-0">
+          <button onClick={() => { playClick(); memoryClear(); }} className="text-xs px-1.5 py-0.5 sm:px-2 rounded hover:bg-background transition-colors text-muted-foreground">MC</button>
+          <button onClick={() => {
+            playClick();
             const val = memoryRecall();
             if (val) insert(val);
-          }} className="text-xs px-2 py-0.5 rounded hover:bg-background transition-colors text-muted-foreground">MR</button>
+          }} className="text-xs px-1.5 py-0.5 sm:px-2 rounded hover:bg-background transition-colors text-muted-foreground">MR</button>
           <button onClick={() => {
             playClick();
             const res = finalResult ? parseFloat(finalResult) : (previewResult ? parseFloat(previewResult) : 0);
             if (!isNaN(res)) memoryAdd(res);
-          }} className="text-xs px-2 py-0.5 rounded hover:bg-background transition-colors text-muted-foreground">M+</button>
+          }} className="text-xs px-1.5 py-0.5 sm:px-2 rounded hover:bg-background transition-colors text-muted-foreground">M+</button>
           <button onClick={() => {
             playClick();
             const res = finalResult ? parseFloat(finalResult) : (previewResult ? parseFloat(previewResult) : 0);
             if (!isNaN(res)) memorySubtract(res);
-          }} className="text-xs px-2 py-0.5 rounded hover:bg-background transition-colors text-muted-foreground">M-</button>
+          }} className="text-xs px-1.5 py-0.5 sm:px-2 rounded hover:bg-background transition-colors text-muted-foreground">M-</button>
         </div>
         {memory.hasValue && (
-          <span className="text-xs font-mono text-primary font-bold ml-2 tracking-tighter">M= {memory.value}</span>
+          <span className="text-xs font-mono text-primary font-bold ml-1 sm:ml-2 tracking-tighter whitespace-nowrap flex-shrink-0">M= {memory.value}</span>
         )}
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
         <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full" onClick={() => { playClick(); toggleSound(); }}>
           {soundEnabled ? <Volume2 size={16} /> : <VolumeX size={16} className="text-muted-foreground" />}
         </Button>
@@ -97,24 +97,24 @@ export function Calculator() {
   );
 
   return (
-    <div className="w-full max-w-6xl mx-auto h-[100dvh] sm:h-auto sm:min-h-[800px] flex sm:p-8">
-      <motion.div 
+    <div className="w-full max-w-6xl mx-auto h-[100dvh] sm:h-auto sm:min-h-[800px] flex flex-col lg:flex-row lg:p-4 xl:p-8">
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="flex-1 flex flex-col bg-card sm:rounded-3xl sm:border border-border shadow-2xl overflow-hidden"
       >
-        <div className="flex-1 flex flex-col p-4 sm:p-8">
+        <div className="flex-1 flex flex-col p-3 sm:p-4 lg:p-6 xl:p-8">
           <TopBar />
-          
-          <Display 
+
+          <Display
             expression={expression}
             previewResult={previewResult}
             finalResult={finalResult}
             error={error}
           />
-          
+
           <div className="flex-1 flex flex-col justify-end">
-             <ButtonGrid 
+             <ButtonGrid
                 onInsert={insert}
                 onClear={clear}
                 onBackspace={backspace}
@@ -127,8 +127,8 @@ export function Calculator() {
       </motion.div>
 
       {/* Desktop History Panel */}
-      <div className="hidden lg:block w-80 ml-8 bg-card rounded-3xl border border-border shadow-2xl overflow-hidden">
-        <HistoryPanel 
+      <div className="hidden lg:block w-80 lg:ml-4 xl:ml-8 bg-card rounded-3xl border border-border shadow-2xl overflow-hidden flex-shrink-0">
+        <HistoryPanel
           history={history}
           onSelect={handleHistorySelect}
           onDelete={deleteFromHistory}
@@ -137,19 +137,18 @@ export function Calculator() {
       </div>
 
       {/* Mobile History Drawer */}
-      <div className="lg:hidden absolute bottom-4 right-4">
+      <div className="lg:hidden fixed bottom-4 right-4 z-50">
         <Drawer>
           <DrawerTrigger asChild>
-            <Button size="icon" className="rounded-full shadow-lg h-12 w-12 bg-primary text-primary-foreground hover:bg-primary/90">
-              <History size={20} />
+            <Button size="icon" className="rounded-full shadow-lg h-14 w-14 bg-primary text-primary-foreground hover:bg-primary/90">
+              <History size={22} />
             </Button>
           </DrawerTrigger>
           <DrawerContent className="h-[80dvh] bg-card border-t border-border">
-            <HistoryPanel 
+            <HistoryPanel
               history={history}
               onSelect={(item) => {
                 handleHistorySelect(item);
-                // In a real app we'd close the drawer here, but Vaul handles it well enough or we can add a controlled state.
               }}
               onDelete={deleteFromHistory}
               onClear={clearHistory}
@@ -157,7 +156,6 @@ export function Calculator() {
           </DrawerContent>
         </Drawer>
       </div>
-
     </div>
   );
 }
