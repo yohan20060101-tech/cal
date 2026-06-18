@@ -1,0 +1,406 @@
+You are an expert senior frontend engineer, UI/UX designer, and software architect.
+
+Build a complete production-quality Scientific Calculator web application from scratch.
+
+The application should not look like a beginner project. It should feel like a polished premium product that could realistically be deployed and used by students, engineers, programmers, scientists, and professionals.
+
+====================================================================
+PROJECT OVERVIEW
+====================================================================
+
+Create a fully responsive Scientific Calculator web application with a modern interface, smooth interactions, accurate calculations, keyboard support, calculation history, memory functions, dark/light themes, and advanced mathematical operations.
+
+Use:
+
+- React
+- TypeScript
+- Tailwind CSS
+- Modern component architecture
+- Local Storage for persistence
+
+Do NOT use eval() under any circumstance.
+
+Create clean, maintainable, scalable code.
+
+====================================================================
+DESIGN REQUIREMENTS
+====================================================================
+
+Design Style:
+
+- Premium SaaS-quality UI
+- Modern glassmorphism aesthetics
+- Elegant shadows
+- Smooth transitions
+- Clean typography
+- Beautiful spacing
+- Minimalist professional appearance
+
+Colors:
+
+- Dark mode by default
+- Optional light mode
+- Accent color for action buttons
+- High contrast display
+
+Layout:
+
+Desktop:
+- Calculator centered
+- History panel on right side
+- Responsive design
+
+Mobile:
+- Full-width calculator
+- Collapsible history drawer
+- Thumb-friendly button sizes
+
+Animations:
+
+- Smooth hover effects
+- Button press animations
+- History panel transitions
+- Theme switching transitions
+
+====================================================================
+DISPLAY AREA
+====================================================================
+
+Display should contain:
+
+1. Expression line
+   Example:
+   sin(45)+sqrt(16)
+
+2. Result line
+   Example:
+   6.70710678
+
+Display Features:
+
+- Auto-scaling text
+- Horizontal scrolling for long expressions
+- Copy result button
+- Clear visibility
+
+====================================================================
+BASIC OPERATIONS
+====================================================================
+
+Support:
+
++
+-
+×
+÷
+%
+.
+(
+)
+
+Equals
+
+Negative numbers
+
+Scientific notation
+
+====================================================================
+SCIENTIFIC FUNCTIONS
+====================================================================
+
+Implement:
+
+sin(x)
+cos(x)
+tan(x)
+
+asin(x)
+acos(x)
+atan(x)
+
+sinh(x)
+cosh(x)
+tanh(x)
+
+log(x)
+ln(x)
+
+sqrt(x)
+cbrt(x)
+
+abs(x)
+
+floor(x)
+ceil(x)
+round(x)
+
+x²
+x³
+xʸ
+
+10ˣ
+eˣ
+
+n!
+
+1/x
+
+mod
+
+====================================================================
+CONSTANTS
+====================================================================
+
+Include:
+
+π
+e
+
+====================================================================
+ANGLE MODES
+====================================================================
+
+Provide toggle:
+
+DEG
+RAD
+
+Trigonometric functions must correctly respect current mode.
+
+====================================================================
+MEMORY FUNCTIONS
+====================================================================
+
+Implement:
+
+MC
+MR
+M+
+M-
+
+Display current memory value.
+
+====================================================================
+HISTORY SYSTEM
+====================================================================
+
+Store:
+
+- Expression
+- Result
+- Timestamp
+
+Requirements:
+
+- Save automatically
+- Store last 50 calculations
+- Persist in localStorage
+- Reuse previous calculations by clicking them
+- Delete individual history items
+- Clear all history
+
+History should be displayed in a beautiful side panel.
+
+====================================================================
+KEYBOARD SUPPORT
+====================================================================
+
+Support:
+
+0-9
+
++
+
+-
+
+*
+
+/
+
+%
+
+.
+
+(
+
+)
+
+Enter = Calculate
+
+Backspace = Delete
+
+Escape = Clear
+
+Delete = Clear Entry
+
+Keyboard interactions should feel natural.
+
+====================================================================
+ERROR HANDLING
+====================================================================
+
+Handle safely:
+
+Division by zero
+
+Invalid expressions
+
+Overflow
+
+Underflow
+
+Factorial of negative numbers
+
+Factorial of decimals
+
+Square root of negative numbers
+
+Invalid logarithms
+
+Invalid trigonometric domains
+
+Show friendly error messages.
+
+Never crash the application.
+
+====================================================================
+CALCULATION ENGINE
+====================================================================
+
+Create a proper expression parser.
+
+Requirements:
+
+- Correct operator precedence
+- Correct parentheses handling
+- Safe execution
+- No eval()
+
+Use either:
+
+- Shunting Yard Algorithm
+OR
+- Mathematical expression parser architecture
+
+Calculator must evaluate complex expressions accurately.
+
+Examples:
+
+2+3×4
+
+(2+3)×4
+
+sin(45)+cos(45)
+
+sqrt(25)+5²
+
+3^(2+1)
+
+====================================================================
+EXTRA FEATURES
+====================================================================
+
+Theme System:
+
+- Dark Mode
+- Light Mode
+
+Theme preference saved in localStorage.
+
+Copy Feature:
+
+- Copy result to clipboard
+
+Sound Toggle:
+
+- Optional button click sounds
+- Enabled/disabled setting
+
+Export Feature:
+
+- Export calculation history as TXT file
+
+Responsive Features:
+
+- Mobile optimized
+- Tablet optimized
+- Desktop optimized
+
+====================================================================
+ACCESSIBILITY
+====================================================================
+
+Requirements:
+
+- Keyboard navigation
+- Focus indicators
+- ARIA labels
+- Semantic HTML
+- High contrast support
+
+====================================================================
+PERFORMANCE
+====================================================================
+
+Requirements:
+
+- Fast rendering
+- Efficient state management
+- No unnecessary re-renders
+- Lazy loading where appropriate
+
+====================================================================
+FILE STRUCTURE
+====================================================================
+
+Use clean architecture:
+
+src/
+ ├── components/
+ ├── hooks/
+ ├── utils/
+ ├── parser/
+ ├── types/
+ ├── styles/
+ ├── pages/
+
+Separate:
+
+- UI
+- State management
+- Calculator engine
+- Utilities
+
+====================================================================
+CODE QUALITY
+====================================================================
+
+Requirements:
+
+- TypeScript strict mode
+- Reusable components
+- Clear naming conventions
+- Well-commented code
+- Production-ready standards
+
+====================================================================
+FINAL DELIVERABLE
+====================================================================
+
+Generate the complete working application.
+
+Include:
+
+- All source code
+- All React components
+- Styling
+- Calculator engine
+- State management
+- Local storage integration
+- Theme system
+- History system
+- Export functionality
+- Error handling
+- Keyboard shortcuts
+
+The final product should feel comparable to a premium calculator app available on modern operating systems and should be visually impressive enough to showcase in a professional portfolio.

@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Scientific Calculator"
+version = "1.0.0"
+id = "artifacts/scientific-calculator"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20491
+
+[services.development]
+run = "pnpm --filter @workspace/scientific-calculator run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/scientific-calculator", "run", "build" ]
+publicDir = "artifacts/scientific-calculator/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20491"
+BASE_PATH = "/"
